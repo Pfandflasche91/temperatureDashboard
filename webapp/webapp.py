@@ -2,14 +2,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-@app.route('/hallo/<vorname>')
-def hallo(vorname):
-
-     willkommen = {
-         'vorname' : vorname,
-         'nachname': 'Huber'
-         }
-         
-     return render_template('test.html', **willkommen)
-app.run(host="0.0.0.0")
+app.run(host="0.0.0.0", port=8500)
